@@ -1,0 +1,4 @@
+Hey there!! It's Sydney! 
+You can delete or skip this views folder when
+you go to use this in your own repo. It's just a way
+to show you how you can use the firebase functions
