@@ -4,9 +4,11 @@ import { Button, Form, Header, Grid } from "semantic-ui-react";
 
 function SignInEmail() {
   const [register, setRegister] = useState(false);
+  // Set your user object
   const [userObject, setUserObject] = useState({
     email: "",
     password: "",
+    displayName: "",
   });
 
   const onFieldChange = (event) => {
@@ -21,7 +23,7 @@ function SignInEmail() {
   };
 
   // Here! Here! Here's your Register!
-  // Don't forget you can also you the emailAuth.signOut() function
+  // Don't forget you can also use the emailAuth.signOut() function
   const onSubmitRegister = () => {
     emailAuth.register(userObject);
   };
@@ -36,6 +38,7 @@ function SignInEmail() {
                 Login
               </Header>
               <Form>
+                <Form.Field></Form.Field>
                 <Form.Field>
                   <label>Email</label>
                   <input
@@ -67,6 +70,12 @@ function SignInEmail() {
               </Header>
               <Form>
                 <Form.Field>
+                  <label>Name</label>
+                  <input
+                    id="displayName"
+                    onChange={onFieldChange}
+                    placeholder="Jane Doe"
+                  />
                   <label>Email</label>
                   <input
                     id="email"
