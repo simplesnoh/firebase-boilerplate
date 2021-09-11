@@ -1,3 +1,108 @@
+# How To Use This Boilerplate Code
+
+You can use this code to quickly and easily use Firebase v9.0.0 
+
+It supports these product:
+* Firebase Authentication with Email/Password + Google Auth
+* Firebase Realtime Database
+* Firebase Storage
+
+You can either use this as the base for your application and take out the views folder OR cherry pick the files you need.
+
+## Initialize Firebase
+
+First add firebase to your app: https://firebase.google.com/docs/web/setup
+
+Start by installing using `npm install firebase`
+
+Rename `fakeApiKeys.js` to `apikeys.js` and replace with your Firebase configs
+
+In your `index.js` file make sure that firebase is imported and the app is initialized with `firebase.initializeApp(firebaseConfig);`
+
+## Using It For Google Authentication
+
+If using only google auth keep the `googleAuth.js` file
+
+Initialize Firebase Authentication in your firebase account. Enable google as a sign-in method.
+
+-- Methods --
+
+googleAuth.signIn()
+* params: no paramaters
+* note: opens google sign in popup
+ 
+googleAuth.signOut()
+* params: no paramaters
+* note: could be used for either signout methods
+
+## Using It For Email/Password
+
+If using only email/password auth keep the `emailAuth.js` file
+
+Initialize Firebase Authentication in your firebase account. Enable email/password as a sign-in method.
+
+-- Methods --
+
+emailAuth.register()
+* params: 
+  * userObject --> {name: , password: , displayName: }
+* note: If not using Firebase Realtime Database make sure to take out the API call on `line 34` and replace it with your own
+
+emailAuth.signIn()
+* params: 
+  * userObject --> full object{name: , password: , displayName: }
+
+emailAuth.signOut()
+* params: none
+
+## Using It For File Storage
+
+If using only file storage keep the `photoStorage.js` file
+
+Initialize Firebase Storage in your firebase account.
+
+-- Methods --
+
+photoStorage.upload()
+* params: 
+  * bucket ---> name of folder
+  * file ---> file to be uploaded
+* note: Make sure that you are saving the return URL to an object in your database (ex: a user if its a user profile)
+
+## Using It For Firebase Realtime Database
+
+If using only Firebase Realtime Database keep the `api/dataAccess.js` file
+
+Initialize Firebase Realtime Database in your firebase account.
+
+-- Methods --
+
+api.getRequest() 
+* params: 
+  * resource ---> name of table EX: users, pets, etc
+
+api.getSingleRequest() 
+* params: 
+  * resource 
+  * param ---> What property you are searching by EX: pet_name, book_author 
+  * value ---> the value of that property EX: Nebula, J.K. Rowling
+
+api.postRequest() 
+* params: 
+  * resource 
+  * info ---> the object that needs to be added to the database
+
+api.putRequest()
+* param: 
+  * resource 
+  * dataId ---> the ID of the object 
+  * info 
+
+api.deleteRequest() 
+* param: 
+  * resource 
+  * dataId
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
