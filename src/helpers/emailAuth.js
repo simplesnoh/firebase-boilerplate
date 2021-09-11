@@ -31,9 +31,12 @@ export const emailAuth = {
           uid: userCredential.user.uid,
         };
         // This adds the new user to your database
+        // Take this out if you aren't using Firebase Realtime Database
+        // Add in your own API call to users
         api.postRequest("users", userAuth);
       })
       .catch((error) => {
+        console.log("Email Register Error");
         console.log("error code", error.code);
         console.log("error message", error.message);
       });
@@ -49,6 +52,7 @@ export const emailAuth = {
           res(user);
         })
         .catch((error) => {
+          console.log("Email SignIn Error");
           console.log("error code", error.code);
           console.log("error message", error.message);
         });
@@ -62,6 +66,7 @@ export const emailAuth = {
         console.log("Sign Out Success!");
       })
       .catch((error) => {
+        console.log("signOut Error");
         console.log("error code", error.code);
         console.log("error message", error.message);
       });

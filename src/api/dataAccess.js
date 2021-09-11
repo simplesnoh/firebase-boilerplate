@@ -2,7 +2,7 @@ import { firebaseConfig } from "../apiKeys";
 
 //NOTES!!
 // api.getRequest() --- 1 param --- (resource)
-// api.getSingleRequest() -- 3 params --- (resource, param, value)
+// api.getWithParameterRequest() -- 3 params --- (resource, param, value)
 // api.postRequest() --- 2 params --- (resource, info)
 // api.putRequest() --- 3 params --- (resource, dataId, info)
 // api.deleteRequest() -- 2 params --- (resource, dataId)
@@ -23,25 +23,35 @@ export const api = {
         .then((response) => response.json())
         .then((data) => {
           res(data);
+        })
+        .catch((error) => {
+          console.log("getRequest Error");
+          console.log("error code", error.code);
+          console.log("error message", error.message);
         });
     });
   },
-  // Get one object using a paramater
-  getSingleRequest: function (resource, param, value) {
+  // Get objects using a parameter to find a certain value in a property
+  // Ex: param=pet_name and value="Nebula" means get me all the pets
+  // who are named "Nebula"
+  // Could be used with object's Id to get one specific object
+  getWithParameterRequest: function (resource, param, value) {
     return new Promise((res) => {
       return fetch(`${requestUrl}/${resource}.json?${param}=${value}`)
         .then((response) => response.json())
         .then((data) => {
           res(data);
         })
-        .catch(() => {
-          return "Nope";
+        .catch((error) => {
+          console.log("getWithParameterRequest Error");
+          console.log("error code", error.code);
+          console.log("error message", error.message);
         });
     });
   },
   // Add to a table
   postRequest: function (resource, info) {
-    return new Promise((res) => {
+    return new Promise((res, rej) => {
       return fetch(`${requestUrl}/${resource}.json`, {
         method: "POST",
         headers: {
@@ -52,6 +62,11 @@ export const api = {
         .then((response) => response.json())
         .then((data) => {
           res(data);
+        })
+        .catch((error) => {
+          console.log("postRequest Error");
+          console.log("error code", error.code);
+          console.log("error message", error.message);
         });
     });
   },
@@ -68,6 +83,11 @@ export const api = {
         .then((response) => response.json())
         .then((data) => {
           res(data);
+        })
+        .catch((error) => {
+          console.log("putRequest Error");
+          console.log("error code", error.code);
+          console.log("error message", error.message);
         });
     });
   },
@@ -78,7 +98,14 @@ export const api = {
         method: "DELETE",
       })
         .then((response) => response.json())
-        .then(() => {});
+        .then((data) => {
+          res(data);
+        })
+        .catch((error) => {
+          console.log("deleteRequest Error");
+          console.log("error code", error.code);
+          console.log("error message", error.message);
+        });
     });
   },
 };

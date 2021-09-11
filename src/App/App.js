@@ -15,8 +15,8 @@ function App() {
       uid: userAuth.uid,
       dateVisited: new Date(),
     };
-    api.getSingleRequest("users", "uid", user.uid).then((data) => {
-      if (data === "Nope" || data === null) {
+    api.getWithParameterRequest("users", "uid", user.uid).then((data) => {
+      if (data === null) {
         api.postRequest("users", user).then((user) => {
           setUser(user);
         });

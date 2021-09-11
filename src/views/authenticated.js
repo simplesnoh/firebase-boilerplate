@@ -32,7 +32,7 @@ function Authenticated() {
       </Button>
       <div>
         {/* A file upload is simply an input with type "file" */}
-        <input type="file" placeholder="Search..." onChange={handleChange} />
+        <input type="file" onChange={handleChange} />
         <Button basic color="green" onClick={handleUpload}>
           Upload Photo
         </Button>

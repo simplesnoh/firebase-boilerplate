@@ -28,6 +28,7 @@ export const googleAuth = {
           res(user);
         })
         .catch((error) => {
+          console.log("Google Sign In Error");
           console.log("error code", error.code);
           console.log("error message", error.message);
           console.log("error email", error.email);
@@ -42,6 +43,7 @@ export const googleAuth = {
         console.log("Sign Out Success!");
       })
       .catch((error) => {
+        console.log("Google SignOut Error");
         console.log("error code", error.code);
         console.log("error message", error.message);
       });

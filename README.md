@@ -1,11 +1,12 @@
 # How To Use This Boilerplate Code
 
-You can use this code to quickly and easily use Firebase v9.0.0 
+You can use this code to quickly and easily use Firebase v9.0.0
 
 It supports these product:
-* Firebase Authentication with Email/Password + Google Auth
-* Firebase Realtime Database
-* Firebase Storage
+
+- Firebase Authentication with Email/Password + Google Auth
+- Firebase Realtime Database
+- Firebase Storage
 
 You can either use this as the base for your application and take out the views folder OR cherry pick the files you need.
 
@@ -28,12 +29,14 @@ Initialize Firebase Authentication in your firebase account. Enable google as a 
 -- Methods --
 
 googleAuth.signIn()
-* params: no paramaters
-* note: opens google sign in popup
- 
+
+- params: no paramaters
+- note: opens google sign in popup
+
 googleAuth.signOut()
-* params: no paramaters
-* note: could be used for either signout methods
+
+- params: no paramaters
+- note: could be used for either signout methods
 
 ## Using It For Email/Password
 
@@ -44,16 +47,19 @@ Initialize Firebase Authentication in your firebase account. Enable email/passwo
 -- Methods --
 
 emailAuth.register()
-* params: 
-  * userObject --> {name: , password: , displayName: }
-* note: If not using Firebase Realtime Database make sure to take out the API call on `line 34` and replace it with your own
+
+- params:
+  - userObject --> {name: , password: , displayName: }
+- note: If not using Firebase Realtime Database make sure to take out the API call on `line 36` and replace it with your own
 
 emailAuth.signIn()
-* params: 
-  * userObject --> full object{name: , password: , displayName: }
+
+- params:
+  - userObject --> full object{name: , password: , displayName: }
 
 emailAuth.signOut()
-* params: none
+
+- params: none
 
 ## Using It For File Storage
 
@@ -64,10 +70,11 @@ Initialize Firebase Storage in your firebase account.
 -- Methods --
 
 photoStorage.upload()
-* params: 
-  * bucket ---> name of folder
-  * file ---> file to be uploaded
-* note: Make sure that you are saving the return URL to an object in your database (ex: a user if its a user profile)
+
+- params:
+  - bucket ---> name of folder
+  - file ---> file to be uploaded
+- note: Make sure that you are saving the return URL to an object in your database (ex: a user if its a user profile)
 
 ## Using It For Firebase Realtime Database
 
@@ -77,31 +84,36 @@ Initialize Firebase Realtime Database in your firebase account.
 
 -- Methods --
 
-api.getRequest() 
-* params: 
-  * resource ---> name of table EX: users, pets, etc
+api.getRequest()
 
-api.getSingleRequest() 
-* params: 
-  * resource 
-  * param ---> What property you are searching by EX: pet_name, book_author 
-  * value ---> the value of that property EX: Nebula, J.K. Rowling
+- params:
+  - resource ---> name of table EX: users, pets, etc
 
-api.postRequest() 
-* params: 
-  * resource 
-  * info ---> the object that needs to be added to the database
+api.getWithParameterRequest()
+
+- params:
+  - resource
+  - param ---> What property you are searching by EX: pet_name, book_author
+  - value ---> the value of that property EX: Nebula, J.K. Rowling
+
+api.postRequest()
+
+- params:
+  - resource
+  - info ---> the object that needs to be added to the database
 
 api.putRequest()
-* param: 
-  * resource 
-  * dataId ---> the ID of the object 
-  * info 
 
-api.deleteRequest() 
-* param: 
-  * resource 
-  * dataId
+- param:
+  - resource
+  - dataId ---> the ID of the object
+  - info
+
+api.deleteRequest()
+
+- param:
+  - resource
+  - dataId
 
 # Getting Started with Create React App
 
