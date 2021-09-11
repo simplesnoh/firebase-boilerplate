@@ -23,10 +23,11 @@ function SignInEmail() {
   };
 
   // Here! Here! Here's your Register!
-  // Don't forget you can also use the emailAuth.signOut() function
   const onSubmitRegister = () => {
     emailAuth.register(userObject);
   };
+
+  // Don't forget you can also use the emailAuth.signOut() function
 
   return (
     <>

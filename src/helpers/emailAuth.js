@@ -40,17 +40,19 @@ export const emailAuth = {
   },
   // Sign in existing user
   signIn: function (userObj) {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, userObj.email, userObj.password)
-      .then((userCredential) => {
-        // returns user if you need it
-        const user = userCredential.user;
-        return user;
-      })
-      .catch((error) => {
-        console.log("error code", error.code);
-        console.log("error message", error.message);
-      });
+    return new Promise((res) => {
+      const auth = getAuth();
+      signInWithEmailAndPassword(auth, userObj.email, userObj.password)
+        .then((userCredential) => {
+          // returns user if you need it
+          const user = userCredential.user;
+          res(user);
+        })
+        .catch((error) => {
+          console.log("error code", error.code);
+          console.log("error message", error.message);
+        });
+    });
   },
   // Sign out
   signOut: function () {

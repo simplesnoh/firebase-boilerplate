@@ -18,19 +18,21 @@ import {
 export const googleAuth = {
   // Works to sign in AND register a user
   signIn: function () {
-    const provider = new GoogleAuthProvider();
-    const auth = getAuth();
-    signInWithPopup(auth, provider)
-      .then((userCredential) => {
-        console.log("you did it");
-        const user = userCredential.user;
-        return user;
-      })
-      .catch((error) => {
-        console.log("error code", error.code);
-        console.log("error message", error.message);
-        console.log("error email", error.email);
-      });
+    return new Promise((res) => {
+      const provider = new GoogleAuthProvider();
+      const auth = getAuth();
+      signInWithPopup(auth, provider)
+        .then((userCredential) => {
+          console.log("you did it");
+          const user = userCredential.user;
+          res(user);
+        })
+        .catch((error) => {
+          console.log("error code", error.code);
+          console.log("error message", error.message);
+          console.log("error email", error.email);
+        });
+    });
   },
   // Sign out a user
   signOut: function () {

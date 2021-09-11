@@ -38,7 +38,7 @@ function Authenticated() {
         </Button>
       </div>
       {/* Example of how you can display image with URL */}
-      {imageUrl && <img src={image} />}
+      {imageUrl && <img src={imageUrl} />}
     </>
   );
 }
